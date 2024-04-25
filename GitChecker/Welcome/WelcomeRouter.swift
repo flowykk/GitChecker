@@ -14,8 +14,8 @@ final class WelcomeRouter {
         self.view = view
     }
     
-    func navigateToMain() {
-        let vc = MainBuilder.build()
+    func navigateToMain(for user: User) {
+        let vc = FollowersBuilder.build(for: user)
         view?.navigationController?.pushViewController(vc, animated: true)
     }
     

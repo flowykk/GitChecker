@@ -12,16 +12,18 @@ final class WelcomeViewController: UIViewController {
     
     private let appName: UILabel = UILabel()
     private let appDesc: UILabel = UILabel()
-    
     private let InfoButton: UIButton = UIButton()
-    private let startButton: UIButton = UIButton()
     
+    private let searchField: UITextField = UITextField()
+    private let searchButton: UIButton = UIButton()
+        
     private let accentColor = UIColor(named: "AccentColor")
     private let backgroundColor = UIColor(named: "BackgroundColor")
     private let appLogo = UIImage(named: "AppIcon")
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         view.backgroundColor = backgroundColor
         
         configureUI()
@@ -33,8 +35,10 @@ final class WelcomeViewController: UIViewController {
     }
     
     @objc
-    private func StartButtonTapped() {
-        presenter?.StartButtonTapped()
+    private func SearchButtonTapped() {
+        if !searchField.text!.isEmpty {
+            presenter?.SearchFollowers(for: searchField.text!)
+        }
     }
 }
 
@@ -42,9 +46,9 @@ extension WelcomeViewController {
     private func configureUI() {
         configureAppNameLabel()
         configureAppDescLabel()
-        configureAppLogo()
         configureAppInfoButton()
-        configureStartButton()
+        configureSearchButton()
+        configureSearchField()
     }
     
     private func configureAppNameLabel() {
@@ -55,7 +59,7 @@ extension WelcomeViewController {
         appName.textColor = accentColor
         
         view.addSubview(appName)
-        appName.pinTop(to: view.topAnchor, 100)
+        appName.pinTop(to: view.topAnchor, 70)
         appName.pinLeft(to: view.leadingAnchor, 20)
     }
     
@@ -69,10 +73,6 @@ extension WelcomeViewController {
         view.addSubview(appDesc)
         appDesc.pinTop(to: appName.bottomAnchor, -5)
         appDesc.pinLeft(to: view.leadingAnchor, 20)
-    }
-    
-    private func configureAppLogo() {
-        
     }
     
     private func configureAppInfoButton() {
@@ -90,28 +90,66 @@ extension WelcomeViewController {
         InfoButton.addTarget(self, action: #selector(InfoButtonTapped), for: .touchUpInside)
         
         view.addSubview(InfoButton)
-        InfoButton.pinTop(to: view.topAnchor, 105)
+        InfoButton.pinTop(to: view.topAnchor, 75)
         InfoButton.pinRight(to: view.trailingAnchor, 15)
         InfoButton.setWidth(40)
         InfoButton.setHeight(40)
     }
     
-    private func configureStartButton() {
-        startButton.translatesAutoresizingMaskIntoConstraints = false
+    private func configureSearchField() {
+        view.addSubview(searchField)
+        searchField.translatesAutoresizingMaskIntoConstraints = false
         
-        startButton.backgroundColor = accentColor
-        startButton.setTitle("Start Viewing", for: .normal)
-        startButton.setTitleColor(backgroundColor, for: .normal)
-        startButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
-        startButton.layer.cornerRadius = 30
+        searchField.placeholder = "Search GitHub User"
+        searchField.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+                
+        let imageWidth = UIScreen.main.bounds.width * 0.09
+        let leftViewWidth = 8 + imageWidth + 8
         
-        startButton.addTarget(self, action: #selector(StartButtonTapped), for: .touchUpInside)
+        let imageView: UIImageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .center
         
-        view.addSubview(startButton)
-        startButton.pinBottom(to: view.bottomAnchor, 110)
-        startButton.pinCenterX(to: view.centerXAnchor)
-        startButton.setHeight(60)
-        startButton.setWidth(250)
+        let font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        let configuration = UIImage.SymbolConfiguration(font: font)
+        var image = UIImage(systemName: "magnifyingglass", withConfiguration: configuration)
+        image = image?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+        imageView.image = image
+        
+        imageView.setWidth(leftViewWidth)
+        imageView.setHeight(50)
+        
+        searchField.leftView = imageView
+        searchField.rightView = UIView(frame: CGRect(x: .zero, y: .zero, width: 20, height: 50))
+        searchField.leftViewMode = .always
+        searchField.rightViewMode = .always
+        searchField.backgroundColor = .systemGray6
+        searchField.layer.cornerRadius = 15
+        
+        searchField.setHeight(50)
+        searchField.pinTop(to: appDesc.bottomAnchor, 40)
+        searchField.pinLeft(to: view.leadingAnchor, 10)
+        searchField.pinRight(to: searchButton.leadingAnchor, 10)
+    }
+    
+    private func configureSearchButton() {
+        view.addSubview(searchButton)
+        searchButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        searchButton.setImage(UIImage(systemName: "arrow.forward"), for: .normal)
+        searchButton.imageView?.tintColor = backgroundColor
+        searchButton.backgroundColor = accentColor
+        searchButton.layer.cornerRadius = 13
+        
+        searchButton.imageView?.setWidth(24)
+        searchButton.imageView?.setHeight(24)
+    
+        searchButton.addTarget(self, action: #selector(SearchButtonTapped), for: .touchUpInside)
+        
+        searchButton.setHeight(50)
+        searchButton.setWidth(60)
+        searchButton.pinTop(to: appDesc.bottomAnchor, 40)
+        searchButton.pinRight(to: view.trailingAnchor, 10)
     }
 }
 

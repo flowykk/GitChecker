@@ -1,26 +1,22 @@
 //
-//  WelcomePresenter.swift
+//  MainPresenter.swift
 //  GitChecker
 //
-//  Created by Данила Рахманов on 09.04.2024.
+//  Created by Данила Рахманов on 23.04.2024.
 //
 
 import UIKit
 
-final class WelcomePresenter {
-    private weak var view: WelcomeViewController?
-    private var router: WelcomeRouter
+final class FollowersPresenter {
+    private weak var view: FollowersViewController?
+    private var router: FollowersRouter
     
-    init(view: WelcomeViewController?, router: WelcomeRouter) {
+    init(view: FollowersViewController?, router: FollowersRouter) {
         self.view = view
         self.router = router
     }
     
-    func InfoButtonTapped() {
-        router.presentInfo()
-    }
-    
-    func SearchFollowers(for username: String) {
+    func UserTapped(withName username: String, by mainUser: User) {
         NetworkService.shared.getUser(by: username) { [weak self] (user, errorMessage) in
             guard let self = self else { return }
             
@@ -30,7 +26,7 @@ final class WelcomePresenter {
             }
             
             DispatchQueue.main.async {
-                self.router.navigateToMain(for: user)
+                self.router.navigateToUserInfo(for: user, by: mainUser)
             }
         }
     }
