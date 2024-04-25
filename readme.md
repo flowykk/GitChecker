@@ -10,9 +10,8 @@
 ## Followers screen
 
 <div align="center">
-  <img src="https://github.com/flowykk/WishMaker/assets/71427624/6aa475b5-084b-4178-960c-73eff9e59e6e" width="300"> 
-  <img src="https://github.com/flowykk/WishMaker/assets/71427624/2c43003f-e8d2-4f0d-949e-a9ab40db3eca" width="300"> 
-  <img src="https://github.com/flowykk/WishMaker/assets/71427624/7ed84d8e-c0a4-45ba-bfa1-6b6152a9c888" width="300"> 
+  <img src="https://github.com/flowykk/GitChecker/assets/71427624/9e9e7284-7734-4f29-aaac-0ae1932516c8" width="300"> 
+  <img src="https://github.com/flowykk/GitChecker/assets/71427624/5beddf5c-3b65-47f5-9761-7fe6b2921e7e" width="300"> 
 </div>
 
 ## User Profile screen
