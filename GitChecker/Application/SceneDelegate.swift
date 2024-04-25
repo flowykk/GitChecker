@@ -17,7 +17,35 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 
         let window = UIWindow(windowScene: windowScene)
         
-        let navC = UINavigationController(rootViewController: MainBuilder.build())
+        let user = User(
+            login: "flowykk",
+            avatarUrl: "https://avatars.githubusercontent.com/u/71427624?v=4",
+            name: "Danya Rakhmanov",
+            location: "New Your, NY",
+            bio: "ios-developer",
+            publicRepos: 37,
+            publicGists: 23,
+            htmlUrl: "https://github.com/123",
+            following: 11,
+            followers: 52,
+            createdAt: "2008-10-03T08:35:28Z"
+        )
+        
+        let mainuser = User(
+            login: "flowykk",
+            avatarUrl: "https://avatars.githubusercontent.com/u/71427624?v=4",
+            publicRepos: 15,
+            publicGists: 8,
+            htmlUrl: "https://github.com/flowykk",
+            following: 34,
+            followers: 19,
+            createdAt: "2020-09-17T06:43:02Z"
+        )
+        
+        //let navC = UINavigationController(rootViewController: WelcomeBuilder.build())
+        let navC = UINavigationController(rootViewController: FollowersBuilder.build(for: user))
+        //let navC = UINavigationController(rootViewController: UserInfoBuilder.build(for: user, by: mainuser))
+        
         window.rootViewController = navC
         
         self.window = window
