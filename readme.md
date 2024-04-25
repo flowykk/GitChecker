@@ -17,7 +17,7 @@
 ## User Profile screen
 
 <div align="center">
-  <img src="https://github.com/flowykk/WishMaker/assets/71427624/25973534-47b4-4863-9185-4547c3a34a9a" width="300"> 
-  <img src="https://github.com/flowykk/WishMaker/assets/71427624/085888ef-8d3c-4e12-8d2a-ad592078fa88" width="300">
+  <img src="https://github.com/flowykk/GitChecker/assets/71427624/9babf6f5-9e46-424c-b146-d07319415355" width="300"> 
+  <img src="https://github.com/flowykk/GitChecker/assets/71427624/77ae6819-c4e0-460f-a446-40121735f3de" width="300">
 </div>
 
