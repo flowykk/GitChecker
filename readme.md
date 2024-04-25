@@ -4,6 +4,7 @@
 
 <div align="center">
   <img src="https://github.com/flowykk/GitChecker/assets/71427624/41a57bf8-748a-4994-9d66-07663b83f5da" width="300"> 
+  <img src="https://github.com/flowykk/GitChecker/assets/71427624/967b2175-5949-4bb1-91d6-97c315858ea2" width="300"> 
 </div>
 
 ## Followers screen
