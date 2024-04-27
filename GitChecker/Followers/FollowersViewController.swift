@@ -134,7 +134,7 @@ extension FollowersViewController {
             }
             self.followers.append(contentsOf: followers)
             
-            if self.followers.isEmpty {
+            if followers.isEmpty {
                 let message = "No followers yet 😤"
                 
                 DispatchQueue.main.async {

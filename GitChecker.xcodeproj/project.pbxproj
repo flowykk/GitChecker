@@ -18,6 +18,10 @@
 		0D3D09EE2BC5D8D3005DA123 /* WelcomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D09ED2BC5D8D3005DA123 /* WelcomeBuilder.swift */; };
 		0D3D09F02BC5D995005DA123 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D09EF2BC5D995005DA123 /* InfoViewController.swift */; };
 		0D3D09F32BC5DAD2005DA123 /* InfoBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D09F22BC5DAD2005DA123 /* InfoBuilder.swift */; };
+		0D54B9A72BDD0E6B00F5234F /* PreviewAvatarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D54B9A62BDD0E6B00F5234F /* PreviewAvatarBuilder.swift */; };
+		0D54B9A92BDD0E7000F5234F /* PreviewAvatarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D54B9A82BDD0E7000F5234F /* PreviewAvatarPresenter.swift */; };
+		0D54B9AB2BDD0E7700F5234F /* PreviewAvatarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D54B9AA2BDD0E7700F5234F /* PreviewAvatarRouter.swift */; };
+		0D54B9AD2BDD0E8000F5234F /* PreviewAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D54B9AC2BDD0E8000F5234F /* PreviewAvatarViewController.swift */; };
 		0D74C8092BD3CE11001B4216 /* InfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D74C8082BD3CE11001B4216 /* InfoPresenter.swift */; };
 		0D83DCCB2BD7DB33001B662C /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D83DCCA2BD7DB33001B662C /* FollowersViewController.swift */; };
 		0D83DCCD2BD7DC18001B662C /* FollowersBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D83DCCC2BD7DC18001B662C /* FollowersBuilder.swift */; };
@@ -54,6 +58,10 @@
 		0D3D09ED2BC5D8D3005DA123 /* WelcomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeBuilder.swift; sourceTree = "<group>"; };
 		0D3D09EF2BC5D995005DA123 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		0D3D09F22BC5DAD2005DA123 /* InfoBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBuilder.swift; sourceTree = "<group>"; };
+		0D54B9A62BDD0E6B00F5234F /* PreviewAvatarBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewAvatarBuilder.swift; sourceTree = "<group>"; };
+		0D54B9A82BDD0E7000F5234F /* PreviewAvatarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewAvatarPresenter.swift; sourceTree = "<group>"; };
+		0D54B9AA2BDD0E7700F5234F /* PreviewAvatarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewAvatarRouter.swift; sourceTree = "<group>"; };
+		0D54B9AC2BDD0E8000F5234F /* PreviewAvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewAvatarViewController.swift; sourceTree = "<group>"; };
 		0D74C8082BD3CE11001B4216 /* InfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPresenter.swift; sourceTree = "<group>"; };
 		0D83DCCA2BD7DB33001B662C /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
 		0D83DCCC2BD7DC18001B662C /* FollowersBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersBuilder.swift; sourceTree = "<group>"; };
@@ -142,6 +150,17 @@
 			path = Info;
 			sourceTree = "<group>";
 		};
+		0D54B9A52BDD0E1500F5234F /* PreviewAvatar */ = {
+			isa = PBXGroup;
+			children = (
+				0D54B9A62BDD0E6B00F5234F /* PreviewAvatarBuilder.swift */,
+				0D54B9A82BDD0E7000F5234F /* PreviewAvatarPresenter.swift */,
+				0D54B9AA2BDD0E7700F5234F /* PreviewAvatarRouter.swift */,
+				0D54B9AC2BDD0E8000F5234F /* PreviewAvatarViewController.swift */,
+			);
+			path = PreviewAvatar;
+			sourceTree = "<group>";
+		};
 		0D83DCC72BD7D84D001B662C /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +233,7 @@
 		0D83DCE42BD94AD8001B662C /* UserInfo */ = {
 			isa = PBXGroup;
 			children = (
+				0D54B9A52BDD0E1500F5234F /* PreviewAvatar */,
 				0D83DCE52BD94AE5001B662C /* UserInfoBuilder.swift */,
 				0D83DCE72BD94AF0001B662C /* UserInfoPresenter.swift */,
 				0D83DCE92BD94AF7001B662C /* UserInfoRouter.swift */,
@@ -301,6 +321,7 @@
 				0D83DCD72BD80689001B662C /* Follower.swift in Sources */,
 				0D83DCEC2BD94AFE001B662C /* UserInfoViewController.swift in Sources */,
 				0D83DCF22BD98C7E001B662C /* StringExtension.swift in Sources */,
+				0D54B9AD2BDD0E8000F5234F /* PreviewAvatarViewController.swift in Sources */,
 				0D3D09AD2BC5A7AE005DA123 /* AppDelegate.swift in Sources */,
 				0D83DCE82BD94AF0001B662C /* UserInfoPresenter.swift in Sources */,
 				0D83DCE62BD94AE5001B662C /* UserInfoBuilder.swift in Sources */,
@@ -309,12 +330,15 @@
 				0D83DCCF2BD7DC44001B662C /* FollowersRouter.swift in Sources */,
 				0D3D09EC2BC5D877005DA123 /* WelcomeRouter.swift in Sources */,
 				0D83DCDF2BD9131F001B662C /* LoadingViewExtension.swift in Sources */,
+				0D54B9A72BDD0E6B00F5234F /* PreviewAvatarBuilder.swift in Sources */,
 				0D3D09E72BC5AD10005DA123 /* UIView+Pin.swift in Sources */,
 				0D83DCDB2BD82D11001B662C /* FollowerCell.swift in Sources */,
 				0D83DCEE2BD97340001B662C /* InfoView.swift in Sources */,
 				0D3D09F02BC5D995005DA123 /* InfoViewController.swift in Sources */,
+				0D54B9AB2BDD0E7700F5234F /* PreviewAvatarRouter.swift in Sources */,
 				0D83DCD42BD800D7001B662C /* NetworkService.swift in Sources */,
 				0D83DCCD2BD7DC18001B662C /* FollowersBuilder.swift in Sources */,
+				0D54B9A92BDD0E7000F5234F /* PreviewAvatarPresenter.swift in Sources */,
 				0D83DCF02BD98C37001B662C /* DateExtension.swift in Sources */,
 				0D3D09AF2BC5A7AE005DA123 /* SceneDelegate.swift in Sources */,
 				0D83DCCB2BD7DB33001B662C /* FollowersViewController.swift in Sources */,
