@@ -66,7 +66,11 @@ final class UserInfoViewController: UIViewController {
     private func favouriteButtonTapped() {
         isFavourite.toggle()
         favouriteButton.setImage(FavouriteImage(), for: .normal)
-        
+    }
+    
+    @objc
+    private func avatarTapped() {
+        presenter?.gotToAvatarPreview(with: avatarImage.image!)
     }
     
     private func FavouriteImage() -> UIImage{
@@ -93,6 +97,7 @@ extension UserInfoViewController {
         NetworkService.shared.downloadImage(from: user.avatarUrl, for: avatarImage)
         
         configureAvatarImage()
+        configureTapGestureForAvatar()
         configureLoginLabel()
         configureNameLabel()
         
@@ -352,5 +357,12 @@ extension UserInfoViewController {
         view.addSubview(registeredAtDate)
         registeredAtDate.pinTop(to: followersInfoView.bottomAnchor, 15)
         registeredAtDate.pinCenterX(to: view.centerXAnchor)
+    }
+    
+    // MARK: - configuring tap gesture for AvatarImage
+    private func configureTapGestureForAvatar() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(avatarTapped))
+        avatarImage.addGestureRecognizer(tap)
+        avatarImage.isUserInteractionEnabled = true
     }
 }

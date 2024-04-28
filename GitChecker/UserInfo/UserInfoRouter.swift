@@ -33,4 +33,11 @@ final class UserInfoRouter {
         let vc = FollowersBuilder.build(for: user)
         view?.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func navigateToAvatarPreview(with image: UIImage) {
+        let vc = PreviewAvatarBuilder.build(with: image)
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
+        view?.present(vc, animated: true)
+    }
 }

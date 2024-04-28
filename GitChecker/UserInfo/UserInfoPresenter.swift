@@ -38,4 +38,8 @@ final class UserInfoPresenter {
             }
         }
     }
+    
+    func gotToAvatarPreview(with image: UIImage) {
+        router.navigateToAvatarPreview(with: image)
+    }
 }
