@@ -40,7 +40,7 @@ final class FollowersViewController: UIViewController {
     
     @objc
     private func profileButtonTapped() {
-        presenter?.UserTapped(withName: user.login, by: user)
+        presenter?.userTapped(withName: user.login, by: user)
     }
 }
 
@@ -182,7 +182,7 @@ extension FollowersViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let follower = followers[indexPath.item]
-        presenter?.UserTapped(withName: follower.login, by: user)
+        presenter?.userTapped(withName: follower.login, by: user)
     }
 }
 

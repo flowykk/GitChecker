@@ -16,6 +16,9 @@ final class WelcomeViewController: UIViewController {
     
     private let searchField: UITextField = UITextField()
     private let searchButton: UIButton = UIButton()
+    
+    private let favouritesLabel: UILabel = UILabel()
+    private let favouritesTableView: FavouritesTableView = FavouritesTableView()
         
     private let accentColor = UIColor(named: "AccentColor")
     private let backgroundColor = UIColor(named: "BackgroundColor")
@@ -29,15 +32,20 @@ final class WelcomeViewController: UIViewController {
         configureUI()
     }
     
-    @objc
-    private func InfoButtonTapped() {
-        presenter?.InfoButtonTapped()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        favouritesTableView.fetchData()
     }
     
     @objc
-    private func SearchButtonTapped() {
+    private func infoButtonTapped() {
+        presenter?.infoButtonTapped()
+    }
+    
+    @objc
+    private func searchButtonTapped() {
         if !searchField.text!.isEmpty {
-            presenter?.SearchFollowers(for: searchField.text!)
+            presenter?.searchFollowers(for: searchField.text!)
         }
     }
 }
@@ -47,8 +55,12 @@ extension WelcomeViewController {
         configureAppNameLabel()
         configureAppDescLabel()
         configureAppInfoButton()
+        
         configureSearchButton()
         configureSearchField()
+        
+        configureFavouritesLabel()
+        configureFavouritesTableView()
     }
     
     private func configureAppNameLabel() {
@@ -60,7 +72,7 @@ extension WelcomeViewController {
         
         view.addSubview(appName)
         appName.pinTop(to: view.topAnchor, 70)
-        appName.pinLeft(to: view.leadingAnchor, 20)
+        appName.pinLeft(to: view.leadingAnchor, 10)
     }
     
     private func configureAppDescLabel() {
@@ -72,7 +84,7 @@ extension WelcomeViewController {
         
         view.addSubview(appDesc)
         appDesc.pinTop(to: appName.bottomAnchor, -5)
-        appDesc.pinLeft(to: view.leadingAnchor, 20)
+        appDesc.pinLeft(to: view.leadingAnchor, 10)
     }
     
     private func configureAppInfoButton() {
@@ -87,7 +99,7 @@ extension WelcomeViewController {
         InfoButton.backgroundColor = .systemGray6
         InfoButton.layer.cornerRadius = 40 / 2
         
-        InfoButton.addTarget(self, action: #selector(InfoButtonTapped), for: .touchUpInside)
+        InfoButton.addTarget(self, action: #selector(infoButtonTapped), for: .touchUpInside)
         
         view.addSubview(InfoButton)
         InfoButton.pinTop(to: view.topAnchor, 75)
@@ -127,7 +139,7 @@ extension WelcomeViewController {
         searchField.layer.cornerRadius = 15
         
         searchField.setHeight(50)
-        searchField.pinTop(to: appDesc.bottomAnchor, 40)
+        searchField.pinTop(to: appDesc.bottomAnchor, 10)
         searchField.pinLeft(to: view.leadingAnchor, 10)
         searchField.pinRight(to: searchButton.leadingAnchor, 10)
     }
@@ -144,12 +156,32 @@ extension WelcomeViewController {
         searchButton.imageView?.setWidth(24)
         searchButton.imageView?.setHeight(24)
     
-        searchButton.addTarget(self, action: #selector(SearchButtonTapped), for: .touchUpInside)
+        searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
         
         searchButton.setHeight(50)
         searchButton.setWidth(60)
-        searchButton.pinTop(to: appDesc.bottomAnchor, 40)
+        searchButton.pinTop(to: appDesc.bottomAnchor, 10)
         searchButton.pinRight(to: view.trailingAnchor, 10)
     }
+    
+    private func configureFavouritesLabel() {
+        favouritesLabel.text = "Favourites"
+        favouritesLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        favouritesLabel.textColor = accentColor
+        
+        view.addSubview(favouritesLabel)
+        favouritesLabel.pinTop(to: searchField.bottomAnchor, 30)
+        favouritesLabel.pinLeft(to: view.leadingAnchor, 10)
+    }
+    
+    private func configureFavouritesTableView() {
+        favouritesTableView.presenter = presenter
+        favouritesTableView.backgroundColor = backgroundColor
+        
+        view.addSubview(favouritesTableView)
+        favouritesTableView.pinTop(to: favouritesLabel.bottomAnchor, 10)
+        favouritesTableView.pinLeft(to: view.leadingAnchor, 10)
+        favouritesTableView.pinRight(to: view.trailingAnchor, 10)
+        favouritesTableView.pinBottom(to: view.bottomAnchor, 40, .lsOE)
+    }
 }
-

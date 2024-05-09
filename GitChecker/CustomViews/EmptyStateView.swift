@@ -35,7 +35,6 @@ extension EmptyStateView {
         
         messageLabel.textAlignment = .center
         messageLabel.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
-        //messageLabel.text = "No Followers yet 😨"
         messageLabel.textColor = .secondaryLabel
         
         addSubview(messageLabel)

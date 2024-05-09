@@ -14,6 +14,11 @@ final class WelcomeRouter {
         self.view = view
     }
     
+    func navigateToUserInfo(for user: User) {
+        let vc = UserInfoBuilder.build(for: user, by: nil)
+        view?.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func navigateToMain(for user: User) {
         let vc = FollowersBuilder.build(for: user)
         view?.navigationController?.pushViewController(vc, animated: true)

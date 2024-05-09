@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D037EEF2BE7922E00EA6E37 /* FavouritesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D037EEE2BE7922E00EA6E37 /* FavouritesTableView.swift */; };
+		0D037EF12BE7966800EA6E37 /* FavouriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D037EF02BE7966800EA6E37 /* FavouriteCell.swift */; };
+		0D037EF32BE79EC700EA6E37 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D037EF22BE79EC700EA6E37 /* PersistenceService.swift */; };
 		0D3D09AD2BC5A7AE005DA123 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D09AC2BC5A7AE005DA123 /* AppDelegate.swift */; };
 		0D3D09AF2BC5A7AE005DA123 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D09AE2BC5A7AE005DA123 /* SceneDelegate.swift */; };
 		0D3D09B12BC5A7AE005DA123 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D09B02BC5A7AE005DA123 /* WelcomeViewController.swift */; };
@@ -45,6 +48,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D037EEE2BE7922E00EA6E37 /* FavouritesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesTableView.swift; sourceTree = "<group>"; };
+		0D037EF02BE7966800EA6E37 /* FavouriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCell.swift; sourceTree = "<group>"; };
+		0D037EF22BE79EC700EA6E37 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		0D3D09A92BC5A7AE005DA123 /* GitChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D3D09AC2BC5A7AE005DA123 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D3D09AE2BC5A7AE005DA123 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +101,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D037EED2BE7920800EA6E37 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0D037EEE2BE7922E00EA6E37 /* FavouritesTableView.swift */,
+				0D037EF02BE7966800EA6E37 /* FavouriteCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		0D3D09A02BC5A7AE005DA123 = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +147,7 @@
 		0D3D09E82BC5D835005DA123 /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
+				0D037EED2BE7920800EA6E37 /* Views */,
 				0D3D09ED2BC5D8D3005DA123 /* WelcomeBuilder.swift */,
 				0D3D09E92BC5D84F005DA123 /* WelcomePresenter.swift */,
 				0D3D09EB2BC5D877005DA123 /* WelcomeRouter.swift */,
@@ -198,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				0D83DCD32BD800D7001B662C /* NetworkService.swift */,
+				0D037EF22BE79EC700EA6E37 /* PersistenceService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -331,16 +348,19 @@
 				0D3D09EC2BC5D877005DA123 /* WelcomeRouter.swift in Sources */,
 				0D83DCDF2BD9131F001B662C /* LoadingViewExtension.swift in Sources */,
 				0D54B9A72BDD0E6B00F5234F /* PreviewAvatarBuilder.swift in Sources */,
+				0D037EEF2BE7922E00EA6E37 /* FavouritesTableView.swift in Sources */,
 				0D3D09E72BC5AD10005DA123 /* UIView+Pin.swift in Sources */,
 				0D83DCDB2BD82D11001B662C /* FollowerCell.swift in Sources */,
 				0D83DCEE2BD97340001B662C /* InfoView.swift in Sources */,
 				0D3D09F02BC5D995005DA123 /* InfoViewController.swift in Sources */,
 				0D54B9AB2BDD0E7700F5234F /* PreviewAvatarRouter.swift in Sources */,
+				0D037EF32BE79EC700EA6E37 /* PersistenceService.swift in Sources */,
 				0D83DCD42BD800D7001B662C /* NetworkService.swift in Sources */,
 				0D83DCCD2BD7DC18001B662C /* FollowersBuilder.swift in Sources */,
 				0D54B9A92BDD0E7000F5234F /* PreviewAvatarPresenter.swift in Sources */,
 				0D83DCF02BD98C37001B662C /* DateExtension.swift in Sources */,
 				0D3D09AF2BC5A7AE005DA123 /* SceneDelegate.swift in Sources */,
+				0D037EF12BE7966800EA6E37 /* FavouriteCell.swift in Sources */,
 				0D83DCCB2BD7DB33001B662C /* FollowersViewController.swift in Sources */,
 				0D3D09F32BC5DAD2005DA123 /* InfoBuilder.swift in Sources */,
 				0D83DCF42BDA57B0001B662C /* ImageLabelView.swift in Sources */,
