@@ -18,7 +18,6 @@ final class NetworkService {
     // MARK: - get followers
     func getFollowers(for username: String, page: Int, completion: @escaping ([Follower]?, String?) -> Void) {
         let endpoint = baseURL + "\(username)/followers?per_page=100&page=\(page)"
-        print(endpoint)
 
         guard let url = URL(string: endpoint) else {
             completion(nil, "This username is invalid. Please try again.")

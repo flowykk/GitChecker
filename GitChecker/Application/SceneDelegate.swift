@@ -42,9 +42,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             createdAt: "2020-09-17T06:43:02Z"
         )
         
-        //let navC = UINavigationController(rootViewController: WelcomeBuilder.build())
+        let navC = UINavigationController(rootViewController: WelcomeBuilder.build())
         //let navC = UINavigationController(rootViewController: FollowersBuilder.build(for: user))
-        let navC = UINavigationController(rootViewController: UserInfoBuilder.build(for: user, by: mainuser))
+        //let navC = UINavigationController(rootViewController: UserInfoBuilder.build(for: user, by: mainuser))
         
         window.rootViewController = navC
         

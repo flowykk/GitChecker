@@ -66,6 +66,20 @@ final class UserInfoViewController: UIViewController {
     private func favouriteButtonTapped() {
         isFavourite.toggle()
         favouriteButton.setImage(FavouriteImage(), for: .normal)
+        
+        var actionType = PersistenceAvtionType.remove
+        if isFavourite {
+            actionType = PersistenceAvtionType.add
+        }
+        
+        let favourite = Follower(login: user.login, avatarUrl: user.avatarUrl)
+        PersistenceService.updateWith(favourite: favourite, actionType: actionType) { error in
+            guard let error = error else {
+                return
+            }
+            
+            print(error)
+        }
     }
     
     @objc
@@ -140,7 +154,10 @@ extension UserInfoViewController {
         userImageView.translatesAutoresizingMaskIntoConstraints = false
         userImageView.contentMode = .scaleAspectFill
         userImageView.clipsToBounds = true
-        NetworkService.shared.downloadImage(from: mainUserAvatarUrl, for: userImageView)
+        
+        if let mainUserAvatarUrl = mainUserAvatarUrl {
+            NetworkService.shared.downloadImage(from: mainUserAvatarUrl, for: userImageView)
+        }
         
         userImageView.layer.cornerRadius = 15
         
@@ -155,6 +172,19 @@ extension UserInfoViewController {
     }
     
     private func configureFavouriteButton() {
+        let favourite = Follower(login: user.login, avatarUrl: user.avatarUrl)
+        PersistenceService.isFavourite(favourite: favourite) { [weak self] answer in
+            guard let self = self else {
+                return
+            }
+            
+            if answer {
+                self.isFavourite = true
+            } else {
+                self.isFavourite = false
+            }
+        }
+            
         favouriteButton.setImage(FavouriteImage(), for: .normal)
         favouriteButton.addTarget(self, action: #selector(favouriteButtonTapped), for: .touchUpInside)
     }

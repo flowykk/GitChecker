@@ -53,7 +53,7 @@ extension PreviewAvatarViewController {
     }
     
     private func configureBlurEffect() {
-        let blurEffect = UIBlurEffect(style: .extraLight)
+        let blurEffect = UIBlurEffect(style: .systemMaterial)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         
         blurEffectView.frame = view.bounds

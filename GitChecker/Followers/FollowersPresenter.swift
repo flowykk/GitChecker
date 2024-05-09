@@ -16,7 +16,7 @@ final class FollowersPresenter {
         self.router = router
     }
     
-    func UserTapped(withName username: String, by mainUser: User) {
+    func userTapped(withName username: String, by mainUser: User) {
         NetworkService.shared.getUser(by: username) { [weak self] (user, errorMessage) in
             guard let self = self else { return }
             

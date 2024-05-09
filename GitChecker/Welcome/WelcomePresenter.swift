@@ -16,11 +16,26 @@ final class WelcomePresenter {
         self.router = router
     }
     
-    func InfoButtonTapped() {
+    func favouriteTapped(by follower: Follower) {
+        NetworkService.shared.getUser(by: follower.login) { [weak self] (user, errorMessage) in
+            guard let self = self else { return }
+            
+            guard let user = user else {
+                print(errorMessage!)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.router.navigateToUserInfo(for: user)
+            }
+        }
+    }
+    
+    func infoButtonTapped() {
         router.presentInfo()
     }
     
-    func SearchFollowers(for username: String) {
+    func searchFollowers(for username: String) {
         NetworkService.shared.getUser(by: username) { [weak self] (user, errorMessage) in
             guard let self = self else { return }
             
